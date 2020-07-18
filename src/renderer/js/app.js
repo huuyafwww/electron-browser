@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ReactDom from 'react-dom';
-import { Header } from './components';
+import Components from './components';
 
 export default class App extends Component {
     constructor(props) {
@@ -10,17 +10,9 @@ export default class App extends Component {
 
     UNSAFE_componentWillMount() {}
 
-    render() {
-        return (
-            <div>
-                <Header />
-                <h1>りあくと</h1>
-            </div>
-        );
-    }
 }
 
 ReactDom.render(
-    <App />,
+    <Components />,
     document.getElementById('app')
 );
