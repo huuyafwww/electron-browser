@@ -5,7 +5,10 @@ module.exports = {
     entry: './src/main/js/main.js',
     output: {
         filename: 'main.js',
-        path: path.join(__dirname, 'public')
+        path: path.join(
+            __dirname,
+            'public'
+        )
     },
     target: 'electron-main',
     module: {
@@ -32,7 +35,10 @@ module.exports = {
     entry: './src/renderer/js/app.js',
     output: {
         filename: 'renderer.js',
-        path: path.join(__dirname, 'public')
+        path: path.join(
+            __dirname,
+            'public'
+        )
     },
     target: 'electron-renderer',
     module: {
@@ -54,6 +60,9 @@ module.exports = {
         ]
     },
     devServer: {
-        contentBase: path.join(__dirname, 'public')
+        contentBase: path.join(
+            __dirname,
+            'public'
+        )
     }
 };
