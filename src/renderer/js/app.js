@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ReactDom from 'react-dom';
+import { Header } from './components';
 
 export default class App extends Component {
     constructor(props) {
@@ -7,15 +8,19 @@ export default class App extends Component {
         this.state = {};
     }
 
-    componentWillMount() {}
+    UNSAFE_componentWillMount() {}
 
     render() {
         return (
             <div>
-                <h1>Reactの環境構築できた！</h1>
+                <Header />
+                <h1>りあくと</h1>
             </div>
         );
     }
 }
 
-ReactDom.render(<App />, document.getElementById('app'));
+ReactDom.render(
+    <App />,
+    document.getElementById('app')
+);
