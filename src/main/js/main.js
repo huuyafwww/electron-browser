@@ -2,6 +2,8 @@
 const { app, BrowserWindow } = require('electron');
 const Config = require('electron-config');
 const path = require('path');
+
+
 const config = new Config({
     defaults: {
         bounds: {
@@ -39,7 +41,6 @@ app.on('window-all-closed', function () {
 app.on('ready', () => {
     mainWindow = createMainWindow();
 
-    // ウィンドウが閉じられたらアプリも終了
     mainWindow.on('closed', function () {
         mainWindow = null;
     });

@@ -9,12 +9,8 @@ module.exports = {
     'eslint:recommended',
     'plugin:prettier/recommended'
   ],
-  "globals": {
-    "Atomics": "readonly",
-    "SharedArrayBuffer": "readonly"
-  },
   parserOptions: {
-    ecmaVersion: 11,
+    ecmaVersion: 2018,
     sourceType: 'module'
   },
   plugins: [
@@ -22,6 +18,6 @@ module.exports = {
   ],
   rules: {
     'prettier/prettier': 'error',
-    "no-unused-vars": "off"
+    'no-unused-vars': 'off'
   }
 }

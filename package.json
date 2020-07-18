@@ -6,8 +6,7 @@
   "description": "This is Browser!",
   "keywords": [],
   "scripts": {
-    "dev": "electron ./public",
-    "build": "webpack"
+    "dev": "electron ./public; webpack --watch"
   },
   "repository": "git@github.com:huuyafwww/electron-browser.git",
   "bugs": {
@@ -15,6 +14,7 @@
   },
   "dependencies": {
     "about-window": "^1.13.4",
+    "electron": "^9.1.0",
     "electron-config": "^2.0.0",
     "electron-context-menu": "^2.2.0",
     "electron-dl": "^3.0.1",
@@ -22,10 +22,17 @@
     "electron-is-dev": "^1.2.0",
     "electron-log": "^4.2.2",
     "electron-packager": "^15.0.0",
-    "electron-store": "^6.0.0"
+    "electron-store": "^6.0.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-router-dom": "^5.2.0",
+    "styled-components": "^5.1.1"
   },
   "devDependencies": {
-    "electron": "^9.1.0",
+    "@babel/core": "^7.10.5",
+    "@babel/preset-env": "^7.10.4",
+    "@babel/preset-react": "^7.10.4",
+    "babel-loader": "^8.1.0",
     "electron-reload": "^1.5.0",
     "electron-reloader": "^1.0.1",
     "eslint": "^7.4.0",
@@ -37,9 +44,12 @@
     "eslint-plugin-prettier": "^3.1.4",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.1",
+    "husky": "^4.2.5",
+    "lint-staged": "^10.2.11",
     "prettier": "^2.0.5",
     "webpack": "^4.43.0",
-    "webpack-cli": "^3.3.12"
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
   },
   "husky": {
     "hooks": {
