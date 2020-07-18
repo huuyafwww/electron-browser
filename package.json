@@ -1,0 +1,55 @@
+{
+  "author": "huuyafwww",
+  "name": "Browser",
+  "version": "1.0.0",
+  "license": "MIT",
+  "description": "This is Browser!",
+  "keywords": [],
+  "scripts": {
+    "dev": "electron ./public",
+    "build": "webpack"
+  },
+  "repository": "git@github.com:huuyafwww/electron-browser.git",
+  "bugs": {
+    "url": "https://github.com/huuyafwww/electron-browser/issues"
+  },
+  "dependencies": {
+    "about-window": "^1.13.4",
+    "electron-config": "^2.0.0",
+    "electron-context-menu": "^2.2.0",
+    "electron-dl": "^3.0.1",
+    "electron-find": "^1.0.6",
+    "electron-is-dev": "^1.2.0",
+    "electron-log": "^4.2.2",
+    "electron-packager": "^15.0.0",
+    "electron-store": "^6.0.0"
+  },
+  "devDependencies": {
+    "electron": "^9.1.0",
+    "electron-reload": "^1.5.0",
+    "electron-reloader": "^1.0.1",
+    "eslint": "^7.4.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-config-standard": "^14.1.1",
+    "eslint-loader": "^4.0.2",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1",
+    "prettier": "^2.0.5",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.12"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.js": [
+      "yarn eslint --fix"
+    ]
+  },
+  "private": false
+}
