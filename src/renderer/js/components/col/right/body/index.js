@@ -16,7 +16,7 @@ export default class RightColBody extends Component {
         return (
             <ContentsWrapper>
                 <WebView
-                    src="https://www.google.com"
+                    src={this.props.targetURL}
                     className="webview"
                 />
             </ContentsWrapper>

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import Button from 'react-bootstrap/Button';
-import { BsThreeDots } from 'react-icons/bs';
+// import { ElectronIcon } from './../../../svg';
 
 const ContentsWrapper = styled.div`
     height:10vh;
@@ -21,8 +20,8 @@ export default class LeftColHeader extends Component {
         return (
             <ContentsWrapper>
                 <HeaderStyle>
-                    Erectron
-                    Browser
+                    Electron Browser
+                    {/* <ElectronIcon /> */}
                 </HeaderStyle>
             </ContentsWrapper>
         );

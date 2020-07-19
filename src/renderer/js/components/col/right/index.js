@@ -20,7 +20,9 @@ export default class RightCol extends Component {
                     searchValue={this.props.searchValue}
                     onSearch={() => this.props.onSearch()}
                 />
-                <RightColBody />
+                <RightColBody
+                    targetURL={this.props.targetURL}
+                />
             </RightColWrapper>
         );
     }

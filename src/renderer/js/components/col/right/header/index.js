@@ -28,12 +28,18 @@ export default class RightColHeader extends Component {
         this.props.onSearch();
     }
 
+    onEnterKey(e) {
+        e.key === 'Enter'
+        && this.onClickSearchButton();
+    }
+
     render() {
         return (
             <ContentsWrapper>
                 <InputGroup>
                     <FormControl
                         onChange={(e) => this.onChangeSearchValue(e)}
+                        onKeyPress={(e) => this.onEnterKey(e)}
                         value={this.props.searchValue}
                     />
                     <InputGroup.Append>
