@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Row, Col } from 'react-bootstrap';
 import LeftCol from './col/left/';
+import RightCol from './col/right/';
 import styled from 'styled-components';
 
 const ContentsWrapper = styled.div`
@@ -20,10 +21,28 @@ const LeftColStyle = {
     padding:".8em"
 };
 
+const RightColStyle = {
+    padding:0
+};
+
 export default class Components extends Component {
     constructor(props) {
         super(props);
-        this.state = {};
+        this.state = {
+            searchValue:""
+        };
+    }
+
+    onSearch() {
+        const searchValue = this.state.searchValue;
+    }
+
+    onChangeSearchValue(value) {
+        this.setState(
+            {
+                searchValue: value
+            }
+        );
     }
 
     render() {
@@ -40,8 +59,13 @@ export default class Components extends Component {
                     </Col>
                     <Col
                         sm={10}
+                        style={RightColStyle}
                     >
-                        sm=4
+                        <RightCol
+                            onChangeSearchValue={(v) => this.onChangeSearchValue(v)}
+                            searchValue={this.state.searchValue}
+                            onSearch={() => this.onSearch()}
+                        />
                     </Col>
                 </Row>
             </ContentsWrapper>

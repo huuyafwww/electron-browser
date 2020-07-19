@@ -1,17 +1,15 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import Button from 'react-bootstrap/Button';
-import { BsThreeDots } from 'react-icons/bs';
 
 const ContentsWrapper = styled.div`
-    height:10vh;
+    height:calc(100vh - 42px);
 `;
 
 const HeaderStyle = styled.h3`
 `;
 
 
-export default class LeftColHeader extends Component {
+export default class RightColBody extends Component {
     constructor(props) {
         super(props);
         this.state = {};
@@ -20,10 +18,6 @@ export default class LeftColHeader extends Component {
     render() {
         return (
             <ContentsWrapper>
-                <HeaderStyle>
-                    Erectron
-                    Browser
-                </HeaderStyle>
             </ContentsWrapper>
         );
     }
