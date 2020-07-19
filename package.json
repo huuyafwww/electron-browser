@@ -6,7 +6,11 @@
   "description": "This is Browser!",
   "keywords": [],
   "scripts": {
-    "dev": "electron ./public; webpack --watch"
+    "dev-tool": "npx react-devtools",
+    "elec-dev": "electron ./public",
+    "webp-elec-dev": "webpack --watch --config electron.webpack.config.js",
+    "webp-react-dev": "webpack --watch --config react.webpack.config.js",
+    "build": "webpack --config electron.webpack.config.js && webpack --config react.webpack.config.js"
   },
   "repository": "git@github.com:huuyafwww/electron-browser.git",
   "bugs": {
@@ -26,6 +30,7 @@
     "react": "^16.13.1",
     "react-bootstrap": "^1.2.2",
     "react-dom": "^16.13.1",
+    "react-electron-web-view": "^2.0.1",
     "react-icons": "^3.10.0",
     "react-router-dom": "^5.2.0",
     "styled-components": "^5.1.1"
@@ -37,7 +42,7 @@
     "babel-loader": "^8.1.0",
     "electron-reload": "^1.5.0",
     "electron-reloader": "^1.0.1",
-    "eslint": "^7.4.0",
+    "eslint": "^7.5.0",
     "eslint-config-prettier": "^6.11.0",
     "eslint-config-standard": "^14.1.1",
     "eslint-loader": "^4.0.2",
@@ -49,6 +54,7 @@
     "husky": "^4.2.5",
     "lint-staged": "^10.2.11",
     "prettier": "^2.0.5",
+    "react-devtools": "^4.8.2",
     "webpack": "^4.43.0",
     "webpack-cli": "^3.3.12",
     "webpack-dev-server": "^3.11.0"
