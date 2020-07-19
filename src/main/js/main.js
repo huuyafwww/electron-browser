@@ -3,7 +3,6 @@ const { app, BrowserWindow } = require('electron');
 const Config = require('electron-config');
 const path = require('path');
 
-
 const config = new Config({
     defaults: {
         bounds: {
@@ -13,11 +12,22 @@ const config = new Config({
     },
 });
 
+const webPreferences = {
+    nodeIntegration: true,
+    webviewTag: true,
+};
+
 let mainWindow;
 
 const createMainWindow = () => {
     const { width, height, x, y } = config.get('bounds');
-    mainWindow = new BrowserWindow({ width, height, x, y });
+    mainWindow = new BrowserWindow({
+        width,
+        height,
+        x,
+        y,
+        webPreferences,
+    });
 
     mainWindow.loadURL('file://' + path.join(__dirname, 'index.html'));
 
@@ -29,7 +39,9 @@ const createMainWindow = () => {
         });
     });
 
-    return mainWindow;
+    mainWindow.on('closed', function () {
+        mainWindow = null;
+    });
 };
 
 app.on('window-all-closed', function () {
@@ -38,10 +50,4 @@ app.on('window-all-closed', function () {
     }
 });
 
-app.on('ready', () => {
-    mainWindow = createMainWindow();
-
-    mainWindow.on('closed', function () {
-        mainWindow = null;
-    });
-});
+app.on('ready', createMainWindow);
