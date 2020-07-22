@@ -7,7 +7,7 @@
   "keywords": [],
   "scripts": {
     "dev-tool": "npx react-devtools",
-    "elec-dev": "electron ./public",
+    "elec-dev": "electron ./pages",
     "webp-elec-dev": "webpack --watch --config electron.webpack.config.js",
     "webp-react-dev": "webpack --watch --config react.webpack.config.js",
     "build": "webpack --config electron.webpack.config.js && webpack --config react.webpack.config.js"

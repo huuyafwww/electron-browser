@@ -7,7 +7,7 @@ module.exports = {
         filename: 'renderer.js',
         path: path.join(
             __dirname,
-            'public'
+            'pages'
         )
     },
     target: 'electron-renderer',
@@ -32,7 +32,7 @@ module.exports = {
     devServer: {
         contentBase: path.join(
             __dirname,
-            'public'
+            'pages'
         )
     }
 };
