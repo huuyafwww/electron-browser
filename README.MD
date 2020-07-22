@@ -19,6 +19,8 @@
 
 Sorry, Now Developing.😢
 
+I plan to switch this project to Gatsbyjs💁‍♂️
+
 ## Thank you 🙇‍♂️
 
 - [Electron](https://www.electronjs.org/)
