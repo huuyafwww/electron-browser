@@ -3,12 +3,10 @@ import styled from 'styled-components';
 // import { ElectronIcon } from './../../../svg';
 
 const ContentsWrapper = styled.div`
-    height:10vh;
+    height: 10vh;
 `;
 
-const HeaderStyle = styled.h3`
-`;
-
+const HeaderStyle = styled.h3``;
 
 export default class LeftColHeader extends Component {
     constructor(props) {

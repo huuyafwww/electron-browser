@@ -4,12 +4,10 @@ import { InputGroup, Button, FormControl } from 'react-bootstrap/';
 import { BsSearch } from 'react-icons/bs';
 
 const ContentsWrapper = styled.div`
-    height:42px;
+    height: 42px;
 `;
 
-const HeaderStyle = styled.h3`
-`;
-
+const HeaderStyle = styled.h3``;
 
 export default class RightColHeader extends Component {
     constructor(props) {
@@ -19,9 +17,7 @@ export default class RightColHeader extends Component {
 
     onChangeSearchValue(e) {
         const searchValue = e.target.value;
-        this.props.onChangeSearchValue(
-            searchValue
-        );
+        this.props.onChangeSearchValue(searchValue);
     }
 
     onClickSearchButton() {
@@ -29,8 +25,7 @@ export default class RightColHeader extends Component {
     }
 
     onEnterKey(e) {
-        e.key === 'Enter'
-        && this.onClickSearchButton();
+        e.key === 'Enter' && this.onClickSearchButton();
     }
 
     render() {
@@ -38,14 +33,12 @@ export default class RightColHeader extends Component {
             <ContentsWrapper>
                 <InputGroup>
                     <FormControl
-                        onChange={(e) => this.onChangeSearchValue(e)}
-                        onKeyPress={(e) => this.onEnterKey(e)}
+                        onChange={e => this.onChangeSearchValue(e)}
+                        onKeyPress={e => this.onEnterKey(e)}
                         value={this.props.searchValue}
                     />
                     <InputGroup.Append>
-                        <Button
-                            onClick={() => this.onClickSearchButton()}
-                        >
+                        <Button onClick={() => this.onClickSearchButton()}>
                             <BsSearch />
                         </Button>
                     </InputGroup.Append>

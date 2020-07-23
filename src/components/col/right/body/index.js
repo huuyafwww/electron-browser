@@ -3,7 +3,7 @@ import styled from 'styled-components';
 const WebView = require('react-electron-web-view');
 
 const ContentsWrapper = styled.div`
-    height:calc(100vh - 42px);
+    height: calc(100vh - 42px);
 `;
 
 export default class RightColBody extends Component {
@@ -15,10 +15,7 @@ export default class RightColBody extends Component {
     render() {
         return (
             <ContentsWrapper>
-                <WebView
-                    src={this.props.targetURL}
-                    className="webview"
-                />
+                <WebView src={this.props.targetURL} className="webview" />
             </ContentsWrapper>
         );
     }

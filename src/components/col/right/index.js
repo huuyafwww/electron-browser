@@ -3,8 +3,7 @@ import styled from 'styled-components';
 import RightColHeader from './header/';
 import RightColBody from './body/';
 
-const RightColWrapper = styled.div`
-`;
+const RightColWrapper = styled.div``;
 
 export default class RightCol extends Component {
     constructor(props) {
@@ -16,13 +15,11 @@ export default class RightCol extends Component {
         return (
             <RightColWrapper>
                 <RightColHeader
-                    onChangeSearchValue={(v) => this.props.onChangeSearchValue(v)}
+                    onChangeSearchValue={v => this.props.onChangeSearchValue(v)}
                     searchValue={this.props.searchValue}
                     onSearch={() => this.props.onSearch()}
                 />
-                <RightColBody
-                    targetURL={this.props.targetURL}
-                />
+                <RightColBody targetURL={this.props.targetURL} />
             </RightColWrapper>
         );
     }

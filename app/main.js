@@ -2,6 +2,12 @@
 const { app, BrowserWindow } = require('electron');
 const Config = require('electron-config');
 const path = require('path');
+const serve = require('electron-serve');
+const loadURL = serve({ directory: 'public' });
+
+const isDev = () => {
+    return !app.isPackaged;
+};
 
 const config = new Config({
     defaults: {
@@ -29,11 +35,14 @@ const createMainWindow = () => {
         webPreferences,
     });
 
-    mainWindow.loadURL('file://' + path.join(__dirname, 'index.html'));
+    mainWindow.loadURL('http://localhost:8000/');
+    // loadURL(mainWindow);
+
+    // mainWindow.loadURL('file://' + path.join(__dirname, 'index.html'));
 
     mainWindow.webContents.openDevTools();
 
-    ['resize', 'move'].forEach((ev) => {
+    ['resize', 'move'].forEach(ev => {
         mainWindow.on(ev, () => {
             config.set('bounds', mainWindow.getBounds());
         });

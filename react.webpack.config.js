@@ -5,10 +5,7 @@ module.exports = {
     entry: './src/renderer/js/app.js',
     output: {
         filename: 'renderer.js',
-        path: path.join(
-            __dirname,
-            'pages'
-        )
+        path: path.join(__dirname, 'public'),
     },
     target: 'electron-renderer',
     module: {
@@ -20,19 +17,13 @@ module.exports = {
                 use: {
                     loader: 'babel-loader',
                     options: {
-                        presets: [
-                            '@babel/preset-env',
-                            '@babel/react'
-                        ]
-                    }
-                }
-            }
-        ]
+                        presets: ['@babel/preset-env', '@babel/react'],
+                    },
+                },
+            },
+        ],
     },
     devServer: {
-        contentBase: path.join(
-            __dirname,
-            'pages'
-        )
-    }
+        contentBase: path.join(__dirname, 'public'),
+    },
 };

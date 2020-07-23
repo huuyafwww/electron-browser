@@ -2,13 +2,10 @@ const path = require('path');
 
 module.exports = {
     mode: 'development',
-    entry: './src/main/js/main.js',
+    entry: './app/main.js',
     output: {
         filename: 'main.js',
-        path: path.join(
-            __dirname,
-            'pages'
-        )
+        path: path.join(__dirname, 'public'),
     },
     target: 'electron-main',
     module: {
@@ -21,11 +18,11 @@ module.exports = {
                 options: {
                     fix: true,
                 },
-            }
-        ]
+            },
+        ],
     },
     node: {
         __dirname: false,
-        __filename: false
-    }
+        __filename: false,
+    },
 };
