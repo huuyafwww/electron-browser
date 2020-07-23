@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
+import styled from 'styled-components';
 import { Row, Col } from 'react-bootstrap';
 import LeftCol from './col/left/';
 import RightCol from './col/right/';
-import styled from 'styled-components';
-const buildUrl = require('build-url');
 
 const ContentsWrapper = styled.div`
     width: 100vw;
@@ -15,6 +14,8 @@ const RowStyle = {
     height: '100vh',
     marginLeft: 0,
     marginRight: 0,
+    overflowX: 'scroll',
+    flexWrap: 'nowrap',
 };
 
 const LeftColStyle = {
@@ -29,30 +30,7 @@ const RightColStyle = {
 export default class Components extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-            searchValue: '',
-            targetURL: '',
-        };
-    }
-
-    onSearch() {
-        const searchValue = this.state.searchValue;
-        const targetURL = buildUrl('https://www.google.com', {
-            path: 'search',
-            queryParams: {
-                q: searchValue,
-                oq: searchValue,
-            },
-        });
-        this.setState({
-            targetURL: targetURL,
-        });
-    }
-
-    onChangeSearchValue(value) {
-        this.setState({
-            searchValue: value,
-        });
+        this.state = {};
     }
 
     render() {
@@ -63,14 +41,10 @@ export default class Components extends Component {
                         <LeftCol />
                     </Col>
                     <Col sm={10} style={RightColStyle}>
-                        <RightCol
-                            onChangeSearchValue={v =>
-                                this.onChangeSearchValue(v)
-                            }
-                            searchValue={this.state.searchValue}
-                            onSearch={() => this.onSearch()}
-                            targetURL={this.state.targetURL}
-                        />
+                        <RightCol />
+                    </Col>
+                    <Col sm={10} style={RightColStyle}>
+                        <RightCol />
                     </Col>
                 </Row>
             </ContentsWrapper>

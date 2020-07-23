@@ -7,12 +7,13 @@ const ContentsWrapper = styled.div`
     height: 42px;
 `;
 
-const HeaderStyle = styled.h3``;
-
 export default class RightColHeader extends Component {
     constructor(props) {
         super(props);
         this.state = {};
+        this.onChangeSearchValue = this.onChangeSearchValue.bind(this);
+        this.onEnterKey = this.onEnterKey.bind(this);
+        this.onClickSearchButton = this.onClickSearchButton.bind(this);
     }
 
     onChangeSearchValue(e) {
@@ -33,12 +34,12 @@ export default class RightColHeader extends Component {
             <ContentsWrapper>
                 <InputGroup>
                     <FormControl
-                        onChange={e => this.onChangeSearchValue(e)}
-                        onKeyPress={e => this.onEnterKey(e)}
+                        onChange={this.onChangeSearchValue}
+                        onKeyPress={this.onEnterKey}
                         value={this.props.searchValue}
                     />
                     <InputGroup.Append>
-                        <Button onClick={() => this.onClickSearchButton()}>
+                        <Button onClick={this.onClickSearchButton}>
                             <BsSearch />
                         </Button>
                     </InputGroup.Append>

@@ -1,11 +1,9 @@
-const path = require('path');
-
 module.exports = {
     mode: 'development',
     entry: './app/main.js',
     output: {
         filename: 'main.js',
-        path: path.join(__dirname, 'public'),
+        path: `${__dirname}/public`,
     },
     target: 'electron-main',
     module: {

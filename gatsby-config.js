@@ -5,7 +5,10 @@ module.exports = {
         author: `huuyafwww`,
     },
     plugins: [
+        `gatsby-plugin-sharp`,
+        `gatsby-transformer-sharp`,
         `gatsby-plugin-react-helmet`,
+        `gatsby-plugin-styled-components`,
         {
             resolve: `gatsby-source-filesystem`,
             options: {
@@ -13,9 +16,6 @@ module.exports = {
                 path: `${__dirname}/src/images`,
             },
         },
-        `gatsby-transformer-sharp`,
-        `gatsby-plugin-sharp`,
-        `gatsby-plugin-styled-components`,
         {
             resolve: `gatsby-plugin-manifest`,
             options: {
@@ -35,12 +35,13 @@ module.exports = {
             },
         },
         {
-            resolve: `gatsby-alias-imports`,
+            resolve: `gatsby-plugin-alias-imports`,
             options: {
                 alias: {
                     '@components': 'src/components',
                     '@images': 'src/images',
                     '@styles': 'src/styles',
+                    '@stores': 'src/stores',
                 },
                 extensions: ['js'],
             },

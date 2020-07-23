@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'gatsby';
-import '../styles/';
-import Components from '../components';
+import '@styles';
+import Components from '@components';
 
 const IndexPage = () => (
     <Link to="/">

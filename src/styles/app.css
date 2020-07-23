@@ -1,3 +1,12 @@
+* {
+    text-decoration: none !important;
+}
+
 .webview{
     height:calc(100vh - 42px);
+}
+
+img{
+    max-width: 100%;
+    height: auto;
 }

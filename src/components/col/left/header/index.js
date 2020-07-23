@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-// import { ElectronIcon } from './../../../svg';
+import { Icon } from '@images';
 
 const ContentsWrapper = styled.div`
     height: 10vh;
 `;
 
-const HeaderStyle = styled.h3``;
+const HeaderImg = styled.div``;
 
 export default class LeftColHeader extends Component {
     constructor(props) {
@@ -17,10 +17,9 @@ export default class LeftColHeader extends Component {
     render() {
         return (
             <ContentsWrapper>
-                <HeaderStyle>
-                    Electron Browser
-                    {/* <ElectronIcon /> */}
-                </HeaderStyle>
+                <HeaderImg className="w-50 m-auto">
+                    <img src={Icon} />
+                </HeaderImg>
             </ContentsWrapper>
         );
     }
