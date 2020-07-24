@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { Row, Col } from 'react-bootstrap';
 import LeftCol from './col/left/';
 import RightCol from './col/right/';
+import FixedMenu from './fixedMenu';
 
 const ContentsWrapper = styled.div`
     width: 100vw;
@@ -30,24 +31,45 @@ const RightColStyle = {
 export default class Components extends Component {
     constructor(props) {
         super(props);
-        this.state = {};
+        this.state = {
+            tabCount: 1,
+        };
+        this.addTab = this.addTab.bind(this);
+    }
+
+    addTab() {
+        const tabCount = this.state.tabCount + 1;
+        this.setState({
+            tabCount: tabCount,
+        });
+    }
+
+    generateTab() {
+        const tabCount = this.state.tabCount;
+        const tabs = [];
+        for (let i = 0; i < tabCount; i++) {
+            tabs.push(
+                <Col key={i} sm={10} style={RightColStyle}>
+                    <RightCol />
+                </Col>
+            );
+        }
+        return tabs;
     }
 
     render() {
         return (
-            <ContentsWrapper>
-                <Row style={RowStyle}>
-                    <Col sm={2} style={LeftColStyle}>
-                        <LeftCol />
-                    </Col>
-                    <Col sm={10} style={RightColStyle}>
-                        <RightCol />
-                    </Col>
-                    <Col sm={10} style={RightColStyle}>
-                        <RightCol />
-                    </Col>
-                </Row>
-            </ContentsWrapper>
+            <div>
+                <ContentsWrapper>
+                    <Row style={RowStyle}>
+                        <Col sm={2} style={LeftColStyle}>
+                            <LeftCol />
+                        </Col>
+                        {this.generateTab()}
+                    </Row>
+                </ContentsWrapper>
+                <FixedMenu addTab={this.addTab} />
+            </div>
         );
     }
 }

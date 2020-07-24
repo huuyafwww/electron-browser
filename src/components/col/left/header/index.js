@@ -2,9 +2,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import { Icon } from '@images';
 
-const ContentsWrapper = styled.div`
-    height: 10vh;
-`;
+const ContentsWrapper = styled.div``;
 
 const HeaderImg = styled.div``;
 

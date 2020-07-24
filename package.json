@@ -16,7 +16,7 @@
     "webp-react-dev": "webpack --watch --config react.webpack.config.js",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
     "serve": "gatsby serve",
-    "clean": "gatsby clean && mkdir public && echo '{\"main\":\"main.js\"}' > public/package.json",
+    "clean": "gatsby clean && mkdir public && echo '{\"main\":\"main.js\"}' > public/package.json && yarn cache clean",
     "dev-tool": "npx react-devtools"
   },
   "repository": "git@github.com:huuyafwww/electron-browser.git",

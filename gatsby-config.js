@@ -6,6 +6,7 @@ module.exports = {
     },
     plugins: [
         `gatsby-plugin-sharp`,
+        `gatsby-plugin-offline`,
         `gatsby-transformer-sharp`,
         `gatsby-plugin-react-helmet`,
         `gatsby-plugin-styled-components`,
@@ -44,12 +45,6 @@ module.exports = {
                     '@stores': 'src/stores',
                 },
                 extensions: ['js'],
-            },
-        },
-        {
-            resolve: `gatsby-plugin-offline`,
-            options: {
-                precachePages: [`/*`],
             },
         },
     ],

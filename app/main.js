@@ -21,6 +21,7 @@ const config = new Config({
 const webPreferences = {
     nodeIntegration: true,
     webviewTag: true,
+    nodeIntegrationInWorker: true,
 };
 
 let mainWindow;
