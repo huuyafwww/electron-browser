@@ -10,12 +10,33 @@ export default class RightColBody extends Component {
     constructor(props) {
         super(props);
         this.state = {};
+        this.onDomReady = this.onDomReady.bind(this);
+    }
+
+    componentDidMount() {
+        this.WebView = this.refs.WebView;
+    }
+
+    onDomReady() {
+        const { index, targetURL } = this.props;
+        this.props.updateTab(
+            {
+                title: this.WebView.getTitle(),
+                url: targetURL,
+            },
+            index
+        );
     }
 
     render() {
         return (
             <ContentsWrapper>
-                <WebView src={this.props.targetURL} className="webview" />
+                <WebView
+                    ref="WebView"
+                    src={this.props.targetURL}
+                    className="webview"
+                    onDomReady={this.onDomReady}
+                />
             </ContentsWrapper>
         );
     }

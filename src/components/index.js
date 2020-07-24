@@ -33,28 +33,45 @@ export default class Components extends Component {
         super(props);
         this.state = {
             tabCount: 1,
+            tabInfo: [],
         };
         this.addTab = this.addTab.bind(this);
+        this.updateTab = this.updateTab.bind(this);
+    }
+
+    updateTab(info, index) {
+        const { tabInfo } = this.state;
+        tabInfo[index] = info;
+        this.updateTabInfo(tabInfo);
     }
 
     addTab() {
-        const tabCount = this.state.tabCount + 1;
-        this.setState({
-            tabCount: tabCount,
-        });
+        let { tabInfo, tabCount } = this.state;
+        tabCount++;
+        this.updateTabCount(tabCount);
+        tabInfo.push([]);
+        this.updateTabInfo(tabInfo);
+    }
+
+    updateTabCount(tabCount) {
+        this.setState({ tabCount });
+    }
+
+    updateTabInfo(tabInfo) {
+        this.setState({ tabInfo });
     }
 
     generateTab() {
         const tabCount = this.state.tabCount;
-        const tabs = [];
-        for (let i = 0; i < tabCount; i++) {
-            tabs.push(
-                <Col key={i} sm={10} style={RightColStyle}>
-                    <RightCol />
-                </Col>
-            );
-        }
-        return tabs;
+        return Array(tabCount)
+            .fill(null)
+            .map((_, index) => {
+                return (
+                    <Col key={index} sm={10} style={RightColStyle}>
+                        <RightCol index={index} updateTab={this.updateTab} />
+                    </Col>
+                );
+            });
     }
 
     render() {

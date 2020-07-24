@@ -12,7 +12,7 @@ export default class RightCol extends Component {
         super(props);
         this.state = {
             searchValue: '',
-            targetURL: '',
+            targetURL: 'https://www.google.com',
         };
         this.onSearch = this.onSearch.bind(this);
         this.onChangeSearchValue = this.onChangeSearchValue.bind(this);
@@ -27,15 +27,15 @@ export default class RightCol extends Component {
                 oq: searchValue,
             },
         });
-        this.setState({
-            targetURL: targetURL,
-        });
+        this.setTargetURL(targetURL);
     }
 
-    onChangeSearchValue(value) {
-        this.setState({
-            searchValue: value,
-        });
+    setTargetURL(targetURL) {
+        this.setState({ targetURL });
+    }
+
+    onChangeSearchValue(searchValue) {
+        this.setState({ searchValue });
     }
 
     render() {
@@ -46,7 +46,11 @@ export default class RightCol extends Component {
                     searchValue={this.state.searchValue}
                     onSearch={this.onSearch}
                 />
-                <RightColBody targetURL={this.state.targetURL} />
+                <RightColBody
+                    targetURL={this.state.targetURL}
+                    updateTab={this.props.updateTab}
+                    index={this.props.index}
+                />
             </RightColWrapper>
         );
     }
