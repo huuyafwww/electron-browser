@@ -4,7 +4,7 @@
 
 ## Now 👨‍💻
 
-![top.png](top.png)
+![ElectronBrowser.gif](ElectronBrowser.gif)
 
 ## Stack 🌏
 

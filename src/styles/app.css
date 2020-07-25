@@ -2,6 +2,19 @@
     text-decoration: none !important;
 }
 
+html {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+body{
+    height: 100vh;
+    overflow: scroll;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+}
+
 .webview{
     height:calc(100vh - 42px);
 }

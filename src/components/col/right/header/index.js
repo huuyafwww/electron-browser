@@ -30,16 +30,18 @@ export default class RightColHeader extends Component {
     }
 
     render() {
+        const { searchValue } = this.props;
+        const { onChangeSearchValue, onEnterKey, onClickSearchButton } = this;
         return (
             <ContentsWrapper>
                 <InputGroup>
                     <FormControl
-                        onChange={this.onChangeSearchValue}
-                        onKeyPress={this.onEnterKey}
-                        value={this.props.searchValue}
+                        onChange={onChangeSearchValue}
+                        onKeyPress={onEnterKey}
+                        value={searchValue}
                     />
                     <InputGroup.Append>
-                        <Button onClick={this.onClickSearchButton}>
+                        <Button onClick={onClickSearchButton}>
                             <BsSearch />
                         </Button>
                     </InputGroup.Append>

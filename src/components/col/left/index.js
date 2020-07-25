@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import LeftColHeader from './header/';
+import LeftColBody from './body/';
 
 const LeftColWrapper = styled.div`
     color: #fff;
@@ -21,10 +22,12 @@ export default class LeftCol extends Component {
     }
 
     render() {
+        const { tabInfo } = this.props;
         return (
             <LeftColWrapper>
                 <LeftColHeader />
                 <Divider />
+                <LeftColBody tabInfo={tabInfo} />
             </LeftColWrapper>
         );
     }

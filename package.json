@@ -9,12 +9,12 @@
     "develop": "concurrently \"yarn gatsby-develop\" \"yarn electron-develop\"",
     "gatsby-develop": "gatsby develop",
     "electron-develop": "wait-on http://localhost:8000 && electron public",
-    "build": "yarn gatsby-build && yarn electron-build",
+    "build": "yarn format && yarn gatsby-build && yarn electron-build",
     "gatsby-build": "gatsby build",
     "electron-build": "webpack --config electron.webpack.config.js ",
     "webp-elec-dev": "webpack --watch --config electron.webpack.config.js",
     "webp-react-dev": "webpack --watch --config react.webpack.config.js",
-    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
+    "format": "prettier --write \"**/*.js\"",
     "serve": "gatsby serve",
     "clean": "gatsby clean && mkdir public && echo '{\"main\":\"main.js\"}' > public/package.json && yarn cache clean",
     "dev-tool": "npx react-devtools"
@@ -24,6 +24,7 @@
     "url": "https://github.com/huuyafwww/electron-browser/issues"
   },
   "dependencies": {
+    "@babel/runtime": "^7.10.5",
     "about-window": "^1.13.4",
     "babel-plugin-styled-components": "^1.10.7",
     "build-url": "^2.0.0",
@@ -62,6 +63,7 @@
     "@babel/plugin-proposal-class-properties": "^7.10.4",
     "@babel/plugin-proposal-decorators": "^7.10.5",
     "@babel/plugin-proposal-object-rest-spread": "^7.10.4",
+    "@babel/plugin-transform-runtime": "^7.10.5",
     "@babel/preset-env": "^7.10.4",
     "@babel/preset-react": "^7.10.4",
     "babel-loader": "^8.1.0",

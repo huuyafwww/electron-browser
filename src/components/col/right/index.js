@@ -16,6 +16,11 @@ export default class RightCol extends Component {
         };
         this.onSearch = this.onSearch.bind(this);
         this.onChangeSearchValue = this.onChangeSearchValue.bind(this);
+        this.updateTargetURL = this.updateTargetURL.bind(this);
+    }
+
+    onChangeSearchValue(searchValue) {
+        this.updateSearchValue(searchValue);
     }
 
     onSearch() {
@@ -27,29 +32,39 @@ export default class RightCol extends Component {
                 oq: searchValue,
             },
         });
-        this.setTargetURL(targetURL);
+        this.updateTargetURL(targetURL);
+        this.clearSearchValue();
     }
 
-    setTargetURL(targetURL) {
+    clearSearchValue() {
+        const searchValue = '';
+        this.updateSearchValue(searchValue);
+    }
+
+    updateTargetURL(targetURL) {
         this.setState({ targetURL });
     }
 
-    onChangeSearchValue(searchValue) {
+    updateSearchValue(searchValue) {
         this.setState({ searchValue });
     }
 
     render() {
+        const { searchValue, targetURL } = this.state;
+        const { updateTab, index } = this.props;
+        const { onChangeSearchValue, onSearch, updateTargetURL } = this;
         return (
             <RightColWrapper>
                 <RightColHeader
-                    onChangeSearchValue={this.onChangeSearchValue}
-                    searchValue={this.state.searchValue}
-                    onSearch={this.onSearch}
+                    onChangeSearchValue={onChangeSearchValue}
+                    searchValue={searchValue}
+                    onSearch={onSearch}
                 />
                 <RightColBody
-                    targetURL={this.state.targetURL}
-                    updateTab={this.props.updateTab}
-                    index={this.props.index}
+                    targetURL={targetURL}
+                    updateTab={updateTab}
+                    updateTargetURL={updateTargetURL}
+                    index={index}
                 />
             </RightColWrapper>
         );

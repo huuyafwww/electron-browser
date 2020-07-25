@@ -10,32 +10,49 @@ export default class RightColBody extends Component {
     constructor(props) {
         super(props);
         this.state = {};
-        this.onDomReady = this.onDomReady.bind(this);
+        this.onDidFinishLoad = this.onDidFinishLoad.bind(this);
+        this.getCaptureImage = this.getCaptureImage.bind(this);
+        this.updateTab = this.updateTab.bind(this);
     }
 
     componentDidMount() {
         this.WebView = this.refs.WebView;
     }
 
-    onDomReady() {
-        const { index, targetURL } = this.props;
-        this.props.updateTab(
-            {
-                title: this.WebView.getTitle(),
-                url: targetURL,
-            },
-            index
-        );
+    getCaptureImage(WebView, index) {
+        const { updateTab } = this;
+        WebView.capturePage().then(async image => {
+            updateTab(
+                WebView.getTitle(),
+                WebView.getURL(),
+                image.toDataURL(),
+                index
+            );
+        });
+    }
+
+    updateTab(title, url, image, index) {
+        const { updateTab } = this.props;
+        updateTab({ title, url, image }, index);
+    }
+
+    onDidFinishLoad() {
+        const { updateTargetURL, index } = this.props;
+        const { getCaptureImage, WebView } = this;
+        updateTargetURL(WebView.getURL());
+        getCaptureImage(WebView, index);
     }
 
     render() {
+        const { targetURL } = this.props;
+        const { onDidFinishLoad } = this;
         return (
             <ContentsWrapper>
                 <WebView
                     ref="WebView"
-                    src={this.props.targetURL}
+                    src={targetURL}
                     className="webview"
-                    onDomReady={this.onDomReady}
+                    onDidFinishLoad={onDidFinishLoad}
                 />
             </ContentsWrapper>
         );

@@ -63,29 +63,32 @@ export default class Components extends Component {
 
     generateTab() {
         const tabCount = this.state.tabCount;
+        const { updateTab } = this;
         return Array(tabCount)
             .fill(null)
             .map((_, index) => {
                 return (
-                    <Col key={index} sm={10} style={RightColStyle}>
-                        <RightCol index={index} updateTab={this.updateTab} />
+                    <Col key={index} sm={9} style={RightColStyle}>
+                        <RightCol index={index} updateTab={updateTab} />
                     </Col>
                 );
             });
     }
 
     render() {
+        const { tabInfo } = this.state;
+        const { addTab } = this;
         return (
             <div>
                 <ContentsWrapper>
                     <Row style={RowStyle}>
                         <Col sm={2} style={LeftColStyle}>
-                            <LeftCol />
+                            <LeftCol tabInfo={tabInfo} />
                         </Col>
                         {this.generateTab()}
                     </Row>
                 </ContentsWrapper>
-                <FixedMenu addTab={this.addTab} />
+                <FixedMenu addTab={addTab} />
             </div>
         );
     }
