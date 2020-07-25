@@ -6,7 +6,7 @@
   "description": "This is Browser!",
   "keywords": [],
   "scripts": {
-    "develop": "concurrently \"yarn gatsby-develop\" \"yarn electron-develop\"",
+    "develop": "concurrently \"yarn gatsby-develop\" \"yarn webp-elec-dev\" \"yarn electron-develop\"",
     "gatsby-develop": "gatsby develop",
     "electron-develop": "wait-on http://localhost:8000 && electron public",
     "build": "yarn format && yarn gatsby-build && yarn electron-build",

@@ -36,6 +36,7 @@ export default class Components extends Component {
             tabInfo: [],
         };
         this.addTab = this.addTab.bind(this);
+        this.closeTab = this.closeTab.bind(this);
         this.updateTab = this.updateTab.bind(this);
     }
 
@@ -50,6 +51,14 @@ export default class Components extends Component {
         tabCount++;
         this.updateTabCount(tabCount);
         tabInfo.push([]);
+        this.updateTabInfo(tabInfo);
+    }
+
+    closeTab(index) {
+        let { tabInfo, tabCount } = this.state;
+        tabCount--;
+        this.updateTabCount(tabCount);
+        tabInfo.splice(index, 1);
         this.updateTabInfo(tabInfo);
     }
 
@@ -77,13 +86,13 @@ export default class Components extends Component {
 
     render() {
         const { tabInfo } = this.state;
-        const { addTab } = this;
+        const { addTab, closeTab } = this;
         return (
             <div>
                 <ContentsWrapper>
                     <Row style={RowStyle}>
                         <Col sm={2} style={LeftColStyle}>
-                            <LeftCol tabInfo={tabInfo} />
+                            <LeftCol tabInfo={tabInfo} closeTab={closeTab} />
                         </Col>
                         {this.generateTab()}
                     </Row>

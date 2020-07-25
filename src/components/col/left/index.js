@@ -22,12 +22,12 @@ export default class LeftCol extends Component {
     }
 
     render() {
-        const { tabInfo } = this.props;
+        const { tabInfo, closeTab } = this.props;
         return (
             <LeftColWrapper>
                 <LeftColHeader />
                 <Divider />
-                <LeftColBody tabInfo={tabInfo} />
+                <LeftColBody tabInfo={tabInfo} closeTab={closeTab} />
             </LeftColWrapper>
         );
     }
